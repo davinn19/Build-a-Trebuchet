@@ -1,24 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://field.gd" type="Script" id=1]
-[ext_resource path="res://assets/resources/tree.png" type="Texture" id=2]
-[ext_resource path="res://tree.gd" type="Script" id=3]
+[ext_resource path="res://stations/supply_camp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stations/quarry.tscn" type="PackedScene" id=3]
+[ext_resource path="res://workers/miner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [node name="Field" type="Node2D"]
 script = ExtResource( 1 )
+worker_types = [ ExtResource( 4 ) ]
+
+[node name="Quarry" parent="." instance=ExtResource( 3 )]
+position = Vector2( -493, -11 )
+
+[node name="SupplyCamp" parent="." instance=ExtResource( 2 )]
+position = Vector2( 308, 2 )
 
 [node name="Cam" type="Camera2D" parent="."]
 
 [node name="Workers" type="Node2D" parent="."]
 
-[node name="Trees" type="Node2D" parent="."]
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 308, 0 )
+texture = ExtResource( 5 )
 
-[node name="Tree" type="Node2D" parent="Trees"]
-position = Vector2( -613, -3 )
-script = ExtResource( 3 )
-
-[node name="TreeSprite" type="Sprite" parent="Trees/Tree"]
-texture = ExtResource( 2 )
-offset = Vector2( 0, -235 )
-
-[node name="Tween" type="Tween" parent="Trees/Tree"]
+[node name="Icon2" type="Sprite" parent="."]
+position = Vector2( -484, -14 )
+texture = ExtResource( 5 )

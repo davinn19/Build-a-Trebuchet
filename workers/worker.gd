@@ -1,29 +1,41 @@
 class_name Worker
 extends Node
 
-signal finished_moving
+signal turned_idle
+signal work_cycle_completed
 
 onready var character_rig : CharacterRig = get_parent()
+onready var inventory : Inventory = character_rig.get_node("Inventory")
 
-var field : Field
+onready var field : Field = get_node("../../../")
 
 var move_speed : float = 100
-var is_idle : bool = true
-var is_asleep : bool = false
+var max_inventory_size : int = 10
+var skill_level : int = 1
 
 
-func _init(field : Field) -> void:
-	self.field = field
+enum Worker_State {
+	IDLE,
+	MOVING,
+	WORKING
+}
+
+var cur_state
+
+
+func _ready() -> void:
+	connect("work_cycle_completed", self, "on_work_cycle_completed")
+	yield(character_rig, "ready")
+	do_work_cycle()
+	
+	
+func do_work_cycle() -> void:
+	assert(false, "Needs to be implemented")
 	pass
 
 
-func _ready():
-	field = get_node("../../")
-	play_anim("idle")
-
-
-func _process(delta : float) -> void:
-	pass
+func on_work_cycle_completed() -> void:
+	do_work_cycle()
 
 
 func play_anim(anim_name : String) -> void:
@@ -31,13 +43,21 @@ func play_anim(anim_name : String) -> void:
 	character_rig.anim.play(anim_name)
 
 
+func rest(duration : float) -> void:
+	play_anim("idle")
+	yield(get_tree().create_timer(duration), "timeout")
+	emit_signal("turned_idle")
+
+
 func move_to_target(target : Node2D, stop_distance : float = 0) -> void:
-	is_idle = false
-	
+	play_anim("walk")
 	var start_pos : Vector2 = character_rig.global_position
 	
 	var target_pos : Vector2 = target.global_position
+	
 	var target_direction : Vector2 = start_pos.direction_to(target_pos)
+	character_rig.scale.x = sign(target_direction.x) 
+	
 	var stop_vector : Vector2 = stop_distance * target_direction
 	target_pos -= stop_vector
 	
@@ -45,11 +65,20 @@ func move_to_target(target : Node2D, stop_distance : float = 0) -> void:
 	var move_duration = get_move_duration(move_distance)
 	
 	character_rig.move_tween.interpolate_property(character_rig, "position", start_pos, target_pos, move_duration)
-	play_anim("walk")
-	
+	character_rig.move_tween.start()
 	yield(character_rig.move_tween, "tween_completed")
-	is_idle = true
+	
+	emit_signal("turned_idle")
 
 
 func get_move_duration(move_distance : float) -> float:
+	
 	return move_distance / move_speed
+
+
+func is_inventory_full() -> bool:
+	return inventory.get_total_resource_amount() >= max_inventory_size
+
+
+func is_inventory_empty() -> bool:
+	return inventory.get_total_resource_amount() <= 0

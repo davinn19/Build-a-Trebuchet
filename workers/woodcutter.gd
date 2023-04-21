@@ -3,6 +3,7 @@ extends Worker
 
 var cur_tree : TreeResource
 
+
 func _process(delta : float) -> void:
 	# TODO implement
 	if is_asleep:
@@ -13,7 +14,7 @@ func _process(delta : float) -> void:
 			find_target_tree()
 			
 		else:
-			move_to_target(cur_tree)
+			move_to_target(cur_tree, 200)
 			connect("finished_moving", self, )
 
 

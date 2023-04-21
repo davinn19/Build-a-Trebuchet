@@ -12,3 +12,5 @@ offset = Vector2( 13, -30 )
 
 [node name="Woodcutter" type="Node" parent="." index="2"]
 script = ExtResource( 2 )
+
+[node name="FindTree" type="Node" parent="Woodcutter" index="0"]

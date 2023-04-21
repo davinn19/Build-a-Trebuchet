@@ -9,5 +9,5 @@
 [node name="HeldTool" parent="Body" index="1"]
 texture = ExtResource( 3 )
 
-[node name="Miner" type="Node" parent="." index="2"]
+[node name="Miner" type="Node" parent="." index="4"]
 script = ExtResource( 1 )
