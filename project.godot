@@ -1,0 +1,89 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Worker",
+"class": "Builder",
+"language": "GDScript",
+"path": "res://workers/builder.gd"
+}, {
+"base": "Node2D",
+"class": "CharacterRig",
+"language": "GDScript",
+"path": "res://character_rig/character_rig.gd"
+}, {
+"base": "Node2D",
+"class": "Field",
+"language": "GDScript",
+"path": "res://field.gd"
+}, {
+"base": "Worker",
+"class": "Miner",
+"language": "GDScript",
+"path": "res://workers/miner.gd"
+}, {
+"base": "Worker",
+"class": "Soldier",
+"language": "GDScript",
+"path": "res://workers/soldier.gd"
+}, {
+"base": "Node2D",
+"class": "TreeResource",
+"language": "GDScript",
+"path": "res://tree.gd"
+}, {
+"base": "Worker",
+"class": "Woodcutter",
+"language": "GDScript",
+"path": "res://workers/woodcutter.gd"
+}, {
+"base": "Node",
+"class": "Worker",
+"language": "GDScript",
+"path": "res://workers/worker.gd"
+} ]
+_global_script_class_icons={
+"Builder": "",
+"CharacterRig": "",
+"Field": "",
+"Miner": "",
+"Soldier": "",
+"TreeResource": "",
+"Woodcutter": "",
+"Worker": ""
+}
+
+[application]
+
+config/name="Build-a-Trebuchet"
+run/main_scene="res://field.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
