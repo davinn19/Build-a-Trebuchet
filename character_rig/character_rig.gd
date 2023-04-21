@@ -2,6 +2,7 @@ class_name CharacterRig
 extends Node2D
 
 onready var anim : AnimationPlayer = $Anim
+onready var move_tween : Tween = $MoveTween
 
 
 func _ready() -> void:

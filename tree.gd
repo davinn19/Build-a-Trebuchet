@@ -9,16 +9,12 @@ onready var tree_sprite : Sprite = $TreeSprite
 var chops_left : int = 20
 
 
-func _ready() -> void:
-	fall_over()
-
-
 func chop() -> void:
-	if chops_left <= 0:
+	if !has_chops():
 		return
 	
 	chops_left -= 1
-	if chops_left <= 0:
+	if !has_chops():
 		emit_signal("tree_felled")
 		fall_over()
 
@@ -28,4 +24,7 @@ func fall_over() -> void:
 	tween.start()
 	yield(tween, "tween_completed")
 	pass
-	
+
+
+func has_chops() -> bool:
+	return chops_left > 0

@@ -11,12 +11,14 @@ script = ExtResource( 1 )
 
 [node name="Workers" type="Node2D" parent="."]
 
-[node name="Tree" type="Node2D" parent="."]
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree" type="Node2D" parent="Trees"]
+position = Vector2( -613, -3 )
 script = ExtResource( 3 )
 
-[node name="TreeSprite" type="Sprite" parent="Tree"]
-rotation = 1.00035
+[node name="TreeSprite" type="Sprite" parent="Trees/Tree"]
 texture = ExtResource( 2 )
 offset = Vector2( 0, -235 )
 
-[node name="Tween" type="Tween" parent="Tree"]
+[node name="Tween" type="Tween" parent="Trees/Tree"]

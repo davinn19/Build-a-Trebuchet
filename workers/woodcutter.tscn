@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://character_rig/character_rig.tscn" type="PackedScene" id=1]
+[ext_resource path="res://workers/woodcutter.gd" type="Script" id=2]
+[ext_resource path="res://assets/tools/axe.png" type="Texture" id=3]
+
+[node name="Woodcutter" instance=ExtResource( 1 )]
+
+[node name="HeldTool" parent="Body" index="1"]
+texture = ExtResource( 3 )
+offset = Vector2( 13, -30 )
+
+[node name="Woodcutter" type="Node" parent="." index="2"]
+script = ExtResource( 2 )
