@@ -8,10 +8,6 @@ var delivery_queue : Dictionary = {}
 var delivery_deficit : Dictionary = Resources.get_resource_dictionary()
 
 
-func work(worker_inventory : Inventory, skill_level : int) -> void:
-	pass
-
-
 func get_work_pos() -> Vector2:
 	return work_pos_bounds.get_random_pos()
 

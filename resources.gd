@@ -1,6 +1,6 @@
 extends Node
 
-const resource_ids : Array = ["wood", "stone", "iron", "fibers", "gold", "food"]
+const resource_ids : Array = ["wood", "stone", "iron", "fibers", "gold"]
 
 
 static func get_resource_dictionary() -> Dictionary:

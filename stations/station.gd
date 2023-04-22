@@ -3,7 +3,7 @@ extends Node2D
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	assert(false, "Needs to be implemented.")
+	pass
 
 
 func get_work_pos() -> Vector2:

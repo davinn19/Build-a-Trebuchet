@@ -9,7 +9,7 @@
 [ext_resource path="res://workers/builder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/background.png" type="Texture" id=8]
 [ext_resource path="res://cam.gd" type="Script" id=9]
-[ext_resource path="res://assets/research_station.png" type="Texture" id=10]
+[ext_resource path="res://stations/command_center.tscn" type="PackedScene" id=10]
 [ext_resource path="res://workers/woodcutter.tscn" type="PackedScene" id=11]
 
 [node name="Field" type="Node2D"]
@@ -26,13 +26,11 @@ position = Vector2( -1593, 141 )
 position = Vector2( -732, 182 )
 
 [node name="Trebuchet" parent="." instance=ExtResource( 6 )]
-position = Vector2( 339, 152 )
-
-[node name="ResearchStation" type="Sprite" parent="."]
-position = Vector2( 951, 15 )
-texture = ExtResource( 10 )
+position = Vector2( 458, 152 )
 
 [node name="Cam" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
 script = ExtResource( 9 )
 
 [node name="Workers" type="Node2D" parent="."]
@@ -49,5 +47,4 @@ texture = ExtResource( 8 )
 position = Vector2( 1280, 0 )
 texture = ExtResource( 8 )
 
-[node name="SpawnPos" type="Node2D" parent="."]
-position = Vector2( -191, 264 )
+[node name="CommandStation" parent="." instance=ExtResource( 10 )]

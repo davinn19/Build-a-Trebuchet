@@ -10,11 +10,10 @@ var total_required_resources : Array = [
 	},
 	{
 		"wood" : 20,
-		"fibers" : 5
 	},
 	{
 		"wood" : 30,
-		"fibers" : 10
+		"fibers" : 5
 	},
 	{
 		"wood" : 40,

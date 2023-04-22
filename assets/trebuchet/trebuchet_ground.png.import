@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/counterweight.png-23086287d7ad296fa45ea9693051e185.stex"
+path="res://.import/trebuchet_ground.png-5a49488e253cec92dedb617ecd8fe0a9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/trebuchet/counterweight.png"
-dest_files=[ "res://.import/counterweight.png-23086287d7ad296fa45ea9693051e185.stex" ]
+source_file="res://assets/trebuchet/trebuchet_ground.png"
+dest_files=[ "res://.import/trebuchet_ground.png-5a49488e253cec92dedb617ecd8fe0a9.stex" ]
 
 [params]
 

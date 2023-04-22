@@ -26,15 +26,9 @@ func work(worker_inventory : Inventory, skill_level : int) -> void:
 			available_wood = randi() % 50 + 50
 
 	
-
 func get_wood_drop(skill_level : int) -> int:
 	return int(max(available_wood, skill_level + 1))
 
 
 func get_fiber_drop(skill_level : int) -> int:
-	var drop_chance : float = skill_level * 0.01 + 0.05
-	var fiber_dropped : bool = randf() < drop_chance
-	
-	if fiber_dropped:
-		return 1
-	return 0
+	return randi() % ((skill_level + 1) / 2)

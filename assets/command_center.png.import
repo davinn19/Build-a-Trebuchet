@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/research_station.png-bb2d909c9f4e647a38f4df4493c20b33.stex"
+path="res://.import/command_center.png-de9acb8c745cd8280ba1bb60377aa235.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/research_station.png"
-dest_files=[ "res://.import/research_station.png-bb2d909c9f4e647a38f4df4493c20b33.stex" ]
+source_file="res://assets/command_center.png"
+dest_files=[ "res://.import/command_center.png-de9acb8c745cd8280ba1bb60377aa235.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -10,7 +10,6 @@ func _ready() -> void:
 func work(worker_inventory : Inventory, skill_level : int) -> void:	
 	worker_inventory.add_resource("stone", get_stone_drop(skill_level))
 	worker_inventory.add_resource("iron", get_iron_drop(skill_level))
-	worker_inventory.add_resource("gold", get_gold_drop(skill_level))
 
 
 func get_work_pos() -> Vector2:
@@ -25,16 +24,6 @@ func get_iron_drop(skill_level : int) -> int:
 	var drop_chance : float = (skill_level + 1) * 0.05
 	var iron_dropped : bool = randf() < drop_chance
 	if iron_dropped:
-		return 1
-	else:
-		return 0
-
-
-func get_gold_drop(skill_level : int) -> int:
-	var drop_chance : float = skill_level * 0.02
-	var gold_dropped : bool = randf() > 0.99
-	
-	if gold_dropped:
 		return 1
 	else:
 		return 0
