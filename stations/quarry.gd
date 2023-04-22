@@ -7,15 +7,9 @@ func _ready() -> void:
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	var stone_amount : int = randi() % skill_level
-	worker_inventory.add_resource("stone", stone_amount)
-	worker_inventory.add_resource("gold", get_gold_amount(skill_level))
-
-
-func get_gold_amount(skill_level : int) -> int:
-	var gets_gold : bool = (randi() % 10) <= skill_level
+	var stone_amount : int = randi() % (skill_level + 1)		# TODO tweak drop amount
+	var gold_amount : int = (randi() % (skill_level + 1)) / 2
 	
-	if gets_gold:
-		return randi() % 5
-	else:
-		return 0
+	worker_inventory.add_resource("stone", stone_amount)
+	worker_inventory.add_resource("gold", gold_amount)
+

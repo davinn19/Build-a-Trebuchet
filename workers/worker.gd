@@ -26,6 +26,7 @@ var cur_state
 func _ready() -> void:
 	connect("work_cycle_completed", self, "on_work_cycle_completed")
 	yield(character_rig, "ready")
+	play_anim("idle")
 	do_work_cycle()
 	
 	
@@ -56,7 +57,9 @@ func move_to_target(target : Node2D, stop_distance : float = 0) -> void:
 	var target_pos : Vector2 = target.global_position
 	
 	var target_direction : Vector2 = start_pos.direction_to(target_pos)
-	character_rig.scale.x = sign(target_direction.x) 
+	
+	if sign(target_direction.x) != 0:
+		character_rig.scale.x = sign(target_direction.x)
 	
 	var stop_vector : Vector2 = stop_distance * target_direction
 	target_pos -= stop_vector
