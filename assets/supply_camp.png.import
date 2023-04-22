@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/supply_camp.png-5b32f6e294cc7e177399be8802a343ea.stex"
+path="res://.import/supply_camp.png-63b7434d533739848af222290da83aad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://supply_camp.png"
-dest_files=[ "res://.import/supply_camp.png-5b32f6e294cc7e177399be8802a343ea.stex" ]
+source_file="res://assets/supply_camp.png"
+dest_files=[ "res://.import/supply_camp.png-63b7434d533739848af222290da83aad.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

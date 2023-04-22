@@ -14,14 +14,14 @@ func do_work_cycle() -> void:
 		move_to_station(supply_camp)
 		yield(self, "turned_idle")
 		
-		rest(3)
+		rest(1)
 		yield(self, "turned_idle")
 		supply_camp.do_delivery(inventory)
 		
 		move_to_station(trebuchet)
 		yield(self, "turned_idle")
 		
-		rest(3)
+		rest(1)
 		yield(self, "turned_idle")
 		
 		trebuchet.do_delivery(inventory)
@@ -35,7 +35,7 @@ func do_work_cycle() -> void:
 			yield(get_tree().create_timer(1), "timeout")
 			trebuchet.work(inventory, skill_level)
 	
-	rest(3)
+	rest(1)
 	yield(self, "turned_idle")
 	emit_signal("work_cycle_completed")
 

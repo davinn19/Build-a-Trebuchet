@@ -5,18 +5,57 @@ signal build_completed
 
 var total_required_resources : Array = [
 	{
+		"wood" : 10,
+		"stone" : 50
+	},
+	{
+		"wood" : 20,
+		"fibers" : 5
+	},
+	{
+		"wood" : 30,
+		"fibers" : 10
+	},
+	{
+		"wood" : 40,
+		"fibers" : 10
+	},
+	{
 		"wood" : 50,
-		"stone" : 20
+		"iron" : 5
 	},
 	{
-		"wood" : 100,
-		"stone" : 100
+		"wood" : 50,
+		"iron" : 5,
+		"fibers" : 20
 	},
 	{
-		"wood" : 200,
-		"stone" : 100
+		"wood" : 75,
+	},
+	{
+		"wood" : 50,
+		"fibers" : 20,
+		"iron" : 10,
+	},
+	{
+		"wood" : 30,
+		"iron" : 25,
+		"stone" : 50
+	},
+	{
+		"wood" : 120,
+	},
+	{
+		"fibers" : 75,
+	},
+	{
+		"fibers" : 50,
+		"iron" : 30
+	},
+	{
+		"stone" : 100,
+		"iron" : 50
 	}
-	# TODO add more stages ???
 ]
 
 var build_stage : int = -1
@@ -31,6 +70,7 @@ onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
 
 
 func _ready() -> void:
+	$Anim.play("BuildAnimation", -1, 0)
 	goto_next_stage()
 
 
@@ -47,7 +87,7 @@ func get_work_pos() -> Vector2:
 
 
 func is_build_stage_complete() -> bool:
-	return cur_required_resources.empty() and pending_work == 0
+	return cur_required_resources.empty() and pending_work <= 0
 
 
 func goto_next_stage() -> void:
@@ -61,11 +101,8 @@ func goto_next_stage() -> void:
 
 
 func update_appearance() -> void:
-	var keyframe_time : float = 0.5 * build_stage
-	$Anim.playback_speed = 0
-	$Anim.play("BuildAnimation", -1, 0)
-	$Anim.advance(keyframe_time)
-
+	var keyframe_time : float = 0.1 * build_stage
+	$Anim.seek(keyframe_time)
 
 
 func get_required_resources() -> Dictionary:
@@ -90,9 +127,15 @@ func do_delivery(worker_inventory : Inventory) -> void:
 	var delivery_list : Dictionary = delivery_queue[worker_inventory]
 	for resource in delivery_list:
 		var delivered_amount : int = delivery_list[resource]
-		delivery_surplus[resource] -= delivered_amount
-		cur_required_resources[resource] -= delivered_amount
 		worker_inventory.take_resource(resource, delivered_amount)
+		
+		cur_required_resources[resource] -= delivered_amount
+		if cur_required_resources[resource] <= 0:
+			cur_required_resources.erase(resource)
+		
+		delivery_surplus[resource] -= delivered_amount
 		pending_work += delivered_amount
+		
+		
 	
 	delivery_queue.erase(worker_inventory)

@@ -14,19 +14,19 @@ __meta__ = {
 [node name="Background" type="YSort" parent="."]
 
 [node name="Tree" type="Sprite" parent="Background"]
-position = Vector2( -1014.5, -967 )
+position = Vector2( -1005, -869 )
 texture = ExtResource( 2 )
 
 [node name="Tree2" type="Sprite" parent="Background"]
-position = Vector2( -860.5, -937 )
+position = Vector2( -872, -849 )
 texture = ExtResource( 2 )
 
 [node name="Tree4" type="Sprite" parent="Background"]
-position = Vector2( -675.5, -970 )
+position = Vector2( -661, -830 )
 texture = ExtResource( 2 )
 
 [node name="Tree5" type="Sprite" parent="Background"]
-position = Vector2( -516.5, -913 )
+position = Vector2( -494, -877 )
 texture = ExtResource( 2 )
 
 [node name="Tree6" type="Sprite" parent="Background"]
@@ -34,7 +34,7 @@ position = Vector2( -327.5, -862 )
 texture = ExtResource( 2 )
 
 [node name="Tree7" type="Sprite" parent="Background"]
-position = Vector2( -171.5, -922 )
+position = Vector2( -168, -887 )
 texture = ExtResource( 2 )
 
 [node name="Tree9" type="Sprite" parent="Background"]

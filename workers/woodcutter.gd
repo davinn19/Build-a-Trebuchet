@@ -15,7 +15,7 @@ func do_work_cycle() -> void:
 	move_to_station(field.supply_camp)
 	yield(self, "turned_idle")
 	
-	rest(3)
+	rest(1)
 	yield(self, "turned_idle")
 	
 	field.supply_camp.deposit_all_items(inventory)
