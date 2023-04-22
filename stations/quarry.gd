@@ -2,6 +2,7 @@ class_name Quarry
 extends Station
 
 
+onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
 func _ready() -> void:
 	randomize()
 
@@ -10,6 +11,10 @@ func work(worker_inventory : Inventory, skill_level : int) -> void:
 	worker_inventory.add_resource("stone", get_stone_drop(skill_level))
 	worker_inventory.add_resource("iron", get_iron_drop(skill_level))
 	worker_inventory.add_resource("gold", get_gold_drop(skill_level))
+
+
+func get_work_pos() -> Vector2:
+	return work_pos_bounds.get_random_pos()
 
 
 func get_stone_drop(skill_level : int) -> int:
