@@ -3,7 +3,7 @@
 [ext_resource path="res://inventory.gd" type="Script" id=1]
 [ext_resource path="res://stations/supply_camp.gd" type="Script" id=2]
 [ext_resource path="res://supply_camp.png" type="Texture" id=3]
-[ext_resource path="res://work_pos_bounds.tscn" type="PackedScene" id=4]
+[ext_resource path="res://stations/work_pos_bounds.tscn" type="PackedScene" id=4]
 
 [node name="SupplyCamp" type="Node2D"]
 script = ExtResource( 2 )

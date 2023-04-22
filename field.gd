@@ -6,6 +6,7 @@ onready var workers : Node2D = $Workers
 onready var quarry : Quarry = $Quarry
 onready var supply_camp : SupplyCamp = $SupplyCamp
 onready var trebuchet : Trebuchet = $Trebuchet
+onready var woods : Woods = $Woods
 
 export(Array, PackedScene) var worker_types = []
 

@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/trebuchet/narrow.png" type="Texture" id=8]
 [ext_resource path="res://assets/trebuchet/ladder.png" type="Texture" id=9]
 [ext_resource path="res://assets/trebuchet/wide.png" type="Texture" id=10]
-[ext_resource path="res://work_pos_bounds.tscn" type="PackedScene" id=11]
+[ext_resource path="res://stations/work_pos_bounds.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BuildAnimation"
