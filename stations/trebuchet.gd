@@ -36,7 +36,7 @@ func _ready() -> void:
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	update_appearance()
+	
 	
 	var work_progress : int = randi() % (skill_level + 1)
 	pending_work = max(pending_work - work_progress, 0)
@@ -51,6 +51,7 @@ func is_build_stage_complete() -> bool:
 
 func goto_next_stage() -> void:
 	build_stage += 1
+	update_appearance()
 	if build_stage >= total_required_resources.size():
 		emit_signal("build_completed")
 	else:
@@ -59,8 +60,8 @@ func goto_next_stage() -> void:
 
 
 func update_appearance() -> void:
-	# TODO implement
-	pass
+	$Anim.play(str(build_stage))
+
 
 
 func get_required_resources() -> Dictionary:
