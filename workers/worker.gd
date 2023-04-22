@@ -9,7 +9,7 @@ onready var inventory : Inventory = character_rig.get_node("Inventory")
 
 onready var field : Field = get_node("../../../")
 
-var move_speed : float = 100
+var move_speed : float = 200
 var max_inventory_size : int = 10
 var skill_level : int = 1
 
