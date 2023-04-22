@@ -6,14 +6,10 @@ func _ready() -> void:
 	randomize()
 
 
-func work(worker_inventory : Inventory, skill_level : int) -> void:
-	var gold_amount : int = (randi() % (skill_level + 1)) / 2
-	
+func work(worker_inventory : Inventory, skill_level : int) -> void:	
 	worker_inventory.add_resource("stone", get_stone_drop(skill_level))
 	worker_inventory.add_resource("iron", get_iron_drop(skill_level))
 	worker_inventory.add_resource("gold", get_gold_drop(skill_level))
-	# TOOD add iron drop
-
 
 
 func get_stone_drop(skill_level : int) -> int:

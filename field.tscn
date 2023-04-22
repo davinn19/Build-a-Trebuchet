@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://field.gd" type="Script" id=1]
 [ext_resource path="res://stations/supply_camp.tscn" type="PackedScene" id=2]
@@ -7,28 +7,39 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://stations/trebuchet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://workers/builder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/background.png" type="Texture" id=8]
+[ext_resource path="res://cam.gd" type="Script" id=9]
+[ext_resource path="res://assets/research_station.png" type="Texture" id=10]
 
 [node name="Field" type="Node2D"]
 script = ExtResource( 1 )
 worker_types = [ ExtResource( 4 ), ExtResource( 7 ) ]
 
 [node name="Quarry" parent="." instance=ExtResource( 3 )]
-position = Vector2( -493, -11 )
+position = Vector2( -1207, 142 )
+
+[node name="Icon" type="Sprite" parent="Quarry"]
+position = Vector2( -4, -7 )
+texture = ExtResource( 5 )
 
 [node name="SupplyCamp" parent="." instance=ExtResource( 2 )]
-position = Vector2( 308, 2 )
+position = Vector2( -732, 182 )
 
 [node name="Trebuchet" parent="." instance=ExtResource( 6 )]
 position = Vector2( 339, 152 )
 
+[node name="ResearchStation" type="Sprite" parent="."]
+position = Vector2( 951, 15 )
+texture = ExtResource( 10 )
+
 [node name="Cam" type="Camera2D" parent="."]
+script = ExtResource( 9 )
 
 [node name="Workers" type="Node2D" parent="."]
 
-[node name="Icon" type="Sprite" parent="."]
-position = Vector2( 308, 0 )
-texture = ExtResource( 5 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Icon2" type="Sprite" parent="."]
-position = Vector2( -484, -14 )
-texture = ExtResource( 5 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
