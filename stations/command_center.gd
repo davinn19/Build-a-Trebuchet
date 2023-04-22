@@ -14,6 +14,6 @@ var upgrades : Dictionary = {
 onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
 
 func create_worker(worker_template : PackedScene) -> void:
-	var new_worker : Worker = worker_template.instance()
-	new_worker.global_position = work_pos_bounds.get_random_pos()
+	var new_worker : Node2D = worker_template.instance()
 	add_child(new_worker)
+	new_worker.global_position = work_pos_bounds.get_random_pos()

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://assets/ui/font.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/font_sizes/large.tres" type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+Label/colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+Label/fonts/font = ExtResource( 2 )
+Title/base_type = "Label"

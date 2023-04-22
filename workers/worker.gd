@@ -7,7 +7,7 @@ signal work_cycle_completed
 onready var character_rig : CharacterRig = get_parent()
 onready var inventory : Inventory = character_rig.get_node("Inventory")
 
-onready var field : Field = get_node("../../../")
+onready var field : Node = get_node("../../../")
 
 var move_speed : float = 2000
 var max_inventory_size : int = 30
@@ -17,7 +17,8 @@ var skill_level : int = 10
 func _ready() -> void:
 	connect("work_cycle_completed", self, "on_work_cycle_completed")
 	yield(character_rig, "ready")
-	play_anim("idle")
+	rest(1)
+	yield(self, "turned_idle")
 	do_work_cycle()
 	
 	
@@ -68,7 +69,7 @@ func move_to_pos(target_pos : Vector2) -> void:
 	play_anim("walk")
 	face_target_pos(target_pos)
 	
-	character_rig.move_tween.interpolate_property(character_rig, "position", start_pos, target_pos, move_duration)
+	character_rig.move_tween.interpolate_property(character_rig, "global_position", start_pos, target_pos, move_duration)
 	character_rig.move_tween.start()
 	yield(character_rig.move_tween, "tween_completed")
 	

@@ -1,8 +1,8 @@
 class_name Builder
 extends Worker
 
-onready var trebuchet : Trebuchet = field.trebuchet
-onready var supply_camp : SupplyCamp = field.supply_camp
+onready var trebuchet : Trebuchet = field.get_node("Trebuchet")
+onready var supply_camp : SupplyCamp = field.get_node("SupplyCamp")
 
 
 func do_work_cycle() -> void:

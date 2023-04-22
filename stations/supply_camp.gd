@@ -3,6 +3,7 @@ extends Station
 
 onready var inventory : Inventory = $Inventory
 onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
+onready var click_area : ClickArea = $ClickArea
 
 var delivery_queue : Dictionary = {}
 var delivery_deficit : Dictionary = Resources.get_resource_dictionary()
@@ -12,8 +13,16 @@ func get_work_pos() -> Vector2:
 	return work_pos_bounds.get_random_pos()
 
 
+func get_real_amount(resource : String) -> int:
+	return inventory.get_resource_amount(resource)
+
+
+func get_resource_deficit(resource : String) -> int:
+	return delivery_deficit[resource]
+	
+
 func get_resource_amount(resource : String) -> int:
-	return inventory.get_resource_amount(resource) - delivery_deficit[resource]
+	return get_real_amount(resource) - get_resource_deficit(resource)
 
 
 func deposit_all_items(worker_inventory : Inventory) -> void:
