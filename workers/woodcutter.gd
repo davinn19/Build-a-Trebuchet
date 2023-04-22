@@ -8,7 +8,7 @@ func do_work_cycle() -> void:
 	yield(self, "turned_idle")
 	
 	play_anim("work")
-	while !inventory.is_full():
+	while !is_inventory_full():
 		yield(get_tree().create_timer(1), "timeout")
 		woods.work(inventory, skill_level)
 	

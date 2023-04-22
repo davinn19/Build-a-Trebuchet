@@ -14,13 +14,22 @@ func _ready() -> void:
 	cam.current = true
 	create_miner()
 	create_builder()
+	create_woodcutter()
 	
 
 func create_miner() -> void:
-	var new_miner : Node2D = worker_types[0].instance()
-	workers.add_child(new_miner)
-
+	var worker : Node2D = worker_types[0].instance()
+	worker.global_position = $SpawnPos.global_position
+	workers.add_child(worker)
+	
 
 func create_builder() -> void:
-	var new_builder : Node2D = worker_types[1].instance()
-	workers.add_child(new_builder)
+	var worker : Node2D = worker_types[1].instance()
+	worker.global_position = $SpawnPos.global_position
+	workers.add_child(worker)
+
+
+func create_woodcutter() -> void:
+	var worker : Node2D = worker_types[2].instance()
+	worker.global_position = $SpawnPos.global_position
+	workers.add_child(worker)

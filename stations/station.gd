@@ -7,6 +7,5 @@ func work(worker_inventory : Inventory, skill_level : int) -> void:
 
 
 func get_work_pos() -> Vector2:
-	return global_position
 	print("needs to be implemented")
-	pass
+	return global_position

@@ -1,117 +1,148 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://stations/woods.gd" type="Script" id=1]
-[ext_resource path="res://assets/resources/tree.png" type="Texture" id=2]
+[ext_resource path="res://assets/tree.png" type="Texture" id=2]
+[ext_resource path="res://stations/work_pos_bounds.gd" type="Script" id=3]
 
-[node name="Woods" type="YSort"]
+[node name="Woods" type="Node2D"]
 position = Vector2( -2846, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="Background" type="YSort" parent="."]
 
 [node name="Tree" type="Sprite" parent="Background"]
-position = Vector2( -53, -102 )
+position = Vector2( -1014.5, -967 )
 texture = ExtResource( 2 )
 
 [node name="Tree2" type="Sprite" parent="Background"]
-position = Vector2( 230, -144 )
-texture = ExtResource( 2 )
-
-[node name="Tree3" type="Sprite" parent="Background"]
-position = Vector2( 355, -127 )
+position = Vector2( -860.5, -937 )
 texture = ExtResource( 2 )
 
 [node name="Tree4" type="Sprite" parent="Background"]
-position = Vector2( -1, -141 )
+position = Vector2( -675.5, -970 )
 texture = ExtResource( 2 )
 
 [node name="Tree5" type="Sprite" parent="Background"]
-position = Vector2( 88, -98 )
+position = Vector2( -516.5, -913 )
 texture = ExtResource( 2 )
 
 [node name="Tree6" type="Sprite" parent="Background"]
-position = Vector2( 193, -57 )
+position = Vector2( -327.5, -862 )
 texture = ExtResource( 2 )
 
 [node name="Tree7" type="Sprite" parent="Background"]
-position = Vector2( 476, -99 )
-texture = ExtResource( 2 )
-
-[node name="Tree8" type="Sprite" parent="Background"]
-position = Vector2( 601, -82 )
+position = Vector2( -171.5, -922 )
 texture = ExtResource( 2 )
 
 [node name="Tree9" type="Sprite" parent="Background"]
-position = Vector2( 245, -96 )
+position = Vector2( 2.5, -862 )
 texture = ExtResource( 2 )
 
 [node name="Tree10" type="Sprite" parent="Background"]
-position = Vector2( 334, -53 )
+position = Vector2( 166.5, -808 )
 texture = ExtResource( 2 )
 
 [node name="Tree11" type="Sprite" parent="Background"]
-position = Vector2( -374, -31 )
+position = Vector2( 118.5, -943 )
 texture = ExtResource( 2 )
 
 [node name="Tree12" type="Sprite" parent="Background"]
-position = Vector2( -91, -73 )
+position = Vector2( 361.5, -892 )
 texture = ExtResource( 2 )
 
 [node name="Tree13" type="Sprite" parent="Background"]
-position = Vector2( 34, -56 )
-texture = ExtResource( 2 )
-
-[node name="Tree14" type="Sprite" parent="Background"]
-position = Vector2( -322, -70 )
+position = Vector2( 571.5, -859 )
 texture = ExtResource( 2 )
 
 [node name="Tree15" type="Sprite" parent="Background"]
-position = Vector2( -233, -27 )
+position = Vector2( 724.5, -838 )
 texture = ExtResource( 2 )
 
 [node name="Tree16" type="Sprite" parent="Background"]
-position = Vector2( -568, -86 )
+position = Vector2( 868.5, -880 )
 texture = ExtResource( 2 )
 
 [node name="Tree17" type="Sprite" parent="Background"]
-position = Vector2( -285, -128 )
-texture = ExtResource( 2 )
-
-[node name="Tree18" type="Sprite" parent="Background"]
-position = Vector2( -160, -111 )
+position = Vector2( -702.5, -868 )
 texture = ExtResource( 2 )
 
 [node name="Tree19" type="Sprite" parent="Background"]
-position = Vector2( -516, -125 )
+position = Vector2( -354.5, -937 )
 texture = ExtResource( 2 )
 
-[node name="Tree20" type="Sprite" parent="Background"]
-position = Vector2( -427, -82 )
+[node name="Tree21" type="Sprite" parent="Background"]
+position = Vector2( -99.5, -850 )
+texture = ExtResource( 2 )
+
+[node name="Tree23" type="Sprite" parent="Background"]
+position = Vector2( 310.5, -811 )
 texture = ExtResource( 2 )
 
 [node name="Foreground" type="YSort" parent="."]
 z_index = 10
 
 [node name="Tree" type="Sprite" parent="Foreground"]
-position = Vector2( -558, 154 )
+position = Vector2( -777.5, -484 )
 texture = ExtResource( 2 )
 
 [node name="Tree2" type="Sprite" parent="Foreground"]
-position = Vector2( -289, 164 )
+position = Vector2( -406.5, -493 )
 texture = ExtResource( 2 )
 
 [node name="Tree3" type="Sprite" parent="Foreground"]
-position = Vector2( 22, 154 )
+position = Vector2( -120.5, -390 )
 texture = ExtResource( 2 )
 
 [node name="Tree4" type="Sprite" parent="Foreground"]
-position = Vector2( 291, 164 )
+position = Vector2( 218.5, -434 )
 texture = ExtResource( 2 )
 
 [node name="Tree5" type="Sprite" parent="Foreground"]
-position = Vector2( 539, 168 )
+position = Vector2( 642.5, -440 )
 texture = ExtResource( 2 )
 
 [node name="Tree6" type="Sprite" parent="Foreground"]
-position = Vector2( 808, 178 )
+position = Vector2( -592, -429 )
 texture = ExtResource( 2 )
+
+[node name="Tree7" type="Sprite" parent="Foreground"]
+position = Vector2( 447, -375 )
+texture = ExtResource( 2 )
+
+[node name="Tree8" type="Sprite" parent="Foreground"]
+position = Vector2( -903.5, -695 )
+texture = ExtResource( 2 )
+
+[node name="Tree9" type="Sprite" parent="Foreground"]
+position = Vector2( -532.5, -704 )
+texture = ExtResource( 2 )
+
+[node name="Tree10" type="Sprite" parent="Foreground"]
+position = Vector2( -246.5, -601 )
+texture = ExtResource( 2 )
+
+[node name="Tree11" type="Sprite" parent="Foreground"]
+position = Vector2( 92.5, -645 )
+texture = ExtResource( 2 )
+
+[node name="Tree12" type="Sprite" parent="Foreground"]
+position = Vector2( 516.5, -651 )
+texture = ExtResource( 2 )
+
+[node name="Tree13" type="Sprite" parent="Foreground"]
+position = Vector2( -718, -640 )
+texture = ExtResource( 2 )
+
+[node name="Tree14" type="Sprite" parent="Foreground"]
+position = Vector2( 321, -586 )
+texture = ExtResource( 2 )
+
+[node name="WorkPosBounds" type="Node2D" parent="."]
+position = Vector2( -880, 133 )
+script = ExtResource( 3 )
+
+[node name="BotRight" type="Node2D" parent="WorkPosBounds"]
+position = Vector2( 1702, 120 )
