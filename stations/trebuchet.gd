@@ -27,19 +27,23 @@ var delivery_queue : Dictionary = {}
 
 var delivery_surplus : Dictionary = Resources.get_resource_dictionary()
 
+onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
+
 
 func _ready() -> void:
 	goto_next_stage()
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	
-	
 	var work_progress : int = randi() % (skill_level + 1)
 	pending_work = max(pending_work - work_progress, 0)
 	
 	if is_build_stage_complete():
 		goto_next_stage()
+
+
+func get_work_pos() -> Vector2:
+	return work_pos_bounds.get_random_pos()
 
 
 func is_build_stage_complete() -> bool:

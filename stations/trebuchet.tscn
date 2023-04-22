@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/trebuchet/counterweight.png" type="Texture" id=1]
 [ext_resource path="res://stations/trebuchet.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/trebuchet/narrow.png" type="Texture" id=8]
 [ext_resource path="res://assets/trebuchet/ladder.png" type="Texture" id=9]
 [ext_resource path="res://assets/trebuchet/wide.png" type="Texture" id=10]
+[ext_resource path="res://work_pos_bounds.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BuildAnimation"
@@ -290,3 +291,9 @@ texture = ExtResource( 7 )
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/BuildAnimation = SubResource( 1 )
+
+[node name="WorkPosBounds" parent="." instance=ExtResource( 11 )]
+position = Vector2( -316, 0 )
+
+[node name="BotRight" type="Node2D" parent="WorkPosBounds"]
+position = Vector2( 629, 51 )

@@ -41,22 +41,32 @@ func rest(duration : float) -> void:
 	emit_signal("turned_idle")
 
 
+func move_to_station(station : Station) -> void:
+	var target_pos : Vector2 = station.get_work_pos()
+	move_to_pos(target_pos)
+	yield(self, "turned_idle")
+	face_target_pos(station.global_position)
+
+
 func move_to_target(target : Node2D, stop_distance : float = 0) -> void:
-	play_anim("walk")
+	var target_pos : Vector2 = target.global_position
 	var start_pos : Vector2 = character_rig.global_position
 	
-	var target_pos : Vector2 = target.global_position
-	
 	var target_direction : Vector2 = start_pos.direction_to(target_pos)
-	
-	if sign(target_direction.x) != 0:
-		character_rig.scale.x = sign(target_direction.x)
-	
 	var stop_vector : Vector2 = stop_distance * target_direction
 	target_pos -= stop_vector
 	
+	move_to_pos(target_pos)
+
+
+func move_to_pos(target_pos : Vector2) -> void:
+	var start_pos : Vector2 = character_rig.global_position
+	
 	var move_distance : float = target_pos.distance_to(start_pos)
 	var move_duration = get_move_duration(move_distance)
+	
+	play_anim("walk")
+	face_target_pos(target_pos)
 	
 	character_rig.move_tween.interpolate_property(character_rig, "position", start_pos, target_pos, move_duration)
 	character_rig.move_tween.start()
@@ -65,8 +75,15 @@ func move_to_target(target : Node2D, stop_distance : float = 0) -> void:
 	emit_signal("turned_idle")
 
 
-func get_move_duration(move_distance : float) -> float:
+func face_target_pos(target_pos : Vector2) -> void:
+	var start_pos : Vector2 = character_rig.global_position
 	
+	var target_direction : Vector2 = start_pos.direction_to(target_pos)
+	if sign(target_direction.x) != 0:
+		character_rig.scale.x = sign(target_direction.x)
+
+
+func get_move_duration(move_distance : float) -> float:
 	return move_distance / move_speed
 
 

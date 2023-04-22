@@ -11,14 +11,14 @@ func do_work_cycle() -> void:
 		trebuchet.queue_delivery(inventory, delivery_list)
 		supply_camp.queue_delivery(inventory, delivery_list)
 		
-		move_to_target(supply_camp)
+		move_to_station(supply_camp)
 		yield(self, "turned_idle")
 		
 		rest(3)
 		yield(self, "turned_idle")
 		supply_camp.do_delivery(inventory)
 		
-		move_to_target(trebuchet)
+		move_to_station(trebuchet)
 		yield(self, "turned_idle")
 		
 		rest(3)
@@ -27,7 +27,7 @@ func do_work_cycle() -> void:
 		trebuchet.do_delivery(inventory)
 
 	if trebuchet.pending_work > 0:
-		move_to_target(trebuchet)
+		move_to_station(trebuchet)
 		yield(self, "turned_idle")
 		
 		play_anim("work")

@@ -3,7 +3,7 @@ extends Worker
 
 
 func do_work_cycle() -> void:
-	move_to_target(field.quarry)
+	move_to_station(field.quarry)
 	yield(self, "turned_idle")
 	
 	play_anim("work")
@@ -11,7 +11,7 @@ func do_work_cycle() -> void:
 		yield(get_tree().create_timer(1), "timeout")
 		field.quarry.work(inventory, skill_level)
 	
-	move_to_target(field.supply_camp)
+	move_to_station(field.supply_camp)
 	yield(self, "turned_idle")
 	
 	rest(3)
