@@ -19,7 +19,7 @@ position = Vector2( -493, -11 )
 position = Vector2( 308, 2 )
 
 [node name="Trebuchet" parent="." instance=ExtResource( 6 )]
-position = Vector2( 67, 238 )
+position = Vector2( 339, 152 )
 
 [node name="Cam" type="Camera2D" parent="."]
 
@@ -31,8 +31,4 @@ texture = ExtResource( 5 )
 
 [node name="Icon2" type="Sprite" parent="."]
 position = Vector2( -484, -14 )
-texture = ExtResource( 5 )
-
-[node name="Icon3" type="Sprite" parent="."]
-position = Vector2( 74, 234 )
 texture = ExtResource( 5 )

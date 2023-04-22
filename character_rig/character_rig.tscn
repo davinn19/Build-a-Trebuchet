@@ -334,3 +334,5 @@ anims/work = SubResource( 3 )
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="MoveTween" type="Tween" parent="."]

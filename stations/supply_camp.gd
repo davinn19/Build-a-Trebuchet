@@ -5,11 +5,7 @@ onready var inventory : Inventory = $Inventory
 
 var delivery_queue : Dictionary = {}
 
-var delivery_deficit : Dictionary = {
-	"wood" : 0,
-	"stone" : 0,
-	"gold" : 0
-}
+var delivery_deficit : Dictionary = Resources.get_resource_dictionary()
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:

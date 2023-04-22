@@ -14,15 +14,6 @@ var max_inventory_size : int = 10
 var skill_level : int = 1
 
 
-enum Worker_State {
-	IDLE,
-	MOVING,
-	WORKING
-}
-
-var cur_state
-
-
 func _ready() -> void:
 	connect("work_cycle_completed", self, "on_work_cycle_completed")
 	yield(character_rig, "ready")

@@ -96,6 +96,10 @@ config/name="Build-a-Trebuchet"
 run/main_scene="res://field.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Resources="*res://resources.gd"
+
 [display]
 
 window/size/width=1280

@@ -25,10 +25,7 @@ var pending_work : int = 0
 
 var delivery_queue : Dictionary = {}
 
-var delivery_surplus : Dictionary = {
-	"wood" : 0,
-	"stone" : 0
-}
+var delivery_surplus : Dictionary = Resources.get_resource_dictionary()
 
 
 func _ready() -> void:
@@ -60,13 +57,16 @@ func goto_next_stage() -> void:
 
 
 func update_appearance() -> void:
-	$Anim.play(str(build_stage))
+	var keyframe_time : float = 0.5 * build_stage
+	$Anim.playback_speed = 0
+	$Anim.play("BuildAnimation", -1, 0)
+	$Anim.advance(keyframe_time)
 
 
 
 func get_required_resources() -> Dictionary:
 	var required_resources : Dictionary = cur_required_resources.duplicate()
-	for resource in delivery_surplus:
+	for resource in required_resources:
 		required_resources[resource] -= delivery_surplus[resource]
 	
 	return required_resources

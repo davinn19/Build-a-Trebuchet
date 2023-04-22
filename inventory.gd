@@ -1,11 +1,7 @@
 class_name Inventory
 extends Node
 
-var real_resources : Dictionary = {
-	"wood" : 0,
-	"stone" : 0,
-	"gold" : 0
-}
+var real_resources : Dictionary = Resources.get_resource_dictionary()
 
 func add_resource(resource_name : String, amount : int) -> void:
 	real_resources[resource_name] += amount
