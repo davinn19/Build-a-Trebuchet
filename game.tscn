@@ -5,3 +5,4 @@
 [node name="Game" type="Node"]
 
 [node name="Field" parent="." instance=ExtResource( 1 )]
+visible = false

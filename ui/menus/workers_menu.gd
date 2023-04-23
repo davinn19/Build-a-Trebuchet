@@ -1,4 +1,4 @@
-extends TextureRect
+extends Menu
 
 onready var command_center : CommandCenter = $"../../../CommandCenter"
 onready var supply_camp : SupplyCamp = $"../../../SupplyCamp"

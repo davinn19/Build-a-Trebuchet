@@ -1,4 +1,4 @@
-extends TextureRect
+extends Menu
 
 onready var supply_camp : SupplyCamp = $"../../../SupplyCamp"
 
@@ -6,6 +6,7 @@ onready var sell_one_button : Button = $Content/SellOne
 onready var sell_ten_button : Button = $Content/SellTen
 
 onready var button_group : ButtonGroup = $Content/ResourceList.get_child(0).group
+
 
 func _ready() -> void:
 	sell_one_button.connect("pressed", self, "on_sell_button_pressed", [1])

@@ -12,12 +12,15 @@ func _ready() -> void:
 
 
 func open_ui(ui_name : String) -> void:
-	# TODO implement
-	var selected_ui : Control = get_node(ui_name)
+	var selected_menu : Menu = get_node(ui_name)
 
 	for menu in menus:
-		if menu.name != ui_name:
-			menu.visible = false
+		if menu != selected_menu:
+			menu.close()
+			continue
+
+		if menu.visible:
+			menu.close()
 		else:
-			menu.visible = !menu.visible
+			menu.open()
 

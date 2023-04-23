@@ -1,4 +1,4 @@
-extends TextureRect
+extends Menu
 
 onready var trebuchet : Trebuchet = $"../../../Trebuchet"
 onready var num_stages : int = trebuchet.total_required_resources.size()
@@ -13,7 +13,6 @@ onready var resources : Array = $Content/ResourceList.get_children()
 
 func _ready() -> void:
 	pass
-	
 	
 	
 func _process(delta : float) -> void:

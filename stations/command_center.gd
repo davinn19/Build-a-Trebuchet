@@ -54,7 +54,7 @@ func create_worker(worker_template : PackedScene) -> void:
 
 
 func hire_worker(worker_type : String) -> void:
-	assert(supply_camp.can_sell("gold", hire_cost))
+	assert(supply_camp.has_resource("gold", hire_cost))
 	supply_camp.inventory.take_resource("gold", hire_cost)
 	
 	match worker_type:

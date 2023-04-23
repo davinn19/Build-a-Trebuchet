@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/ui/icons/builder_icon.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/icons/miner_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/icons/woodcutter_icon.png" type="Texture" id=6]
-[ext_resource path="res://assets/ui/background.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/backgrounds/background.png" type="Texture" id=7]
 [ext_resource path="res://ui/button_groups/worker_buttons.tres" type="ButtonGroup" id=8]
 
 [node name="Workers" type="TextureRect"]

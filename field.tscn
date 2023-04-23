@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://field.gd" type="Script" id=1]
 [ext_resource path="res://stations/supply_camp.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://stations/command_center.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/menus/workers_menu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ui/menus/progress_menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui/menus/pause_menu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/ui/icons/workers.png" type="Texture" id=17]
 [ext_resource path="res://assets/ui/icons/settings.png" type="Texture" id=18]
 [ext_resource path="res://ui.gd" type="Script" id=19]
@@ -39,7 +40,6 @@ position = Vector2( -251, 200 )
 
 [node name="Cam" type="Camera2D" parent="."]
 current = true
-smoothing_enabled = true
 script = ExtResource( 9 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -72,24 +72,32 @@ margin_bottom = 142.0
 [node name="Settings" type="TextureButton" parent="CanvasLayer/HUD/Buttons"]
 margin_right = 74.0
 margin_bottom = 64.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 18 )
 
 [node name="Progress" type="TextureButton" parent="CanvasLayer/HUD/Buttons"]
 margin_top = 68.0
 margin_right = 74.0
 margin_bottom = 132.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 22 )
 
 [node name="Supplies" type="TextureButton" parent="CanvasLayer/HUD/Buttons"]
 margin_top = 136.0
 margin_right = 74.0
 margin_bottom = 200.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 23 )
 
 [node name="Workers" type="TextureButton" parent="CanvasLayer/HUD/Buttons"]
 margin_top = 204.0
 margin_right = 74.0
 margin_bottom = 268.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 17 )
 
 [node name="UI" type="Control" parent="CanvasLayer"]
@@ -104,7 +112,13 @@ theme = ExtResource( 7 )
 script = ExtResource( 19 )
 
 [node name="Supplies" parent="CanvasLayer/UI" instance=ExtResource( 4 )]
+visible = false
 
 [node name="Workers" parent="CanvasLayer/UI" instance=ExtResource( 11 )]
+visible = false
 
 [node name="Progress" parent="CanvasLayer/UI" instance=ExtResource( 12 )]
+visible = false
+
+[node name="Pause" parent="CanvasLayer/UI" instance=ExtResource( 13 )]
+visible = false

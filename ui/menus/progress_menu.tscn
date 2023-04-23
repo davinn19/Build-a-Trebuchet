@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/menus/progress_menu.gd" type="Script" id=1]
 [ext_resource path="res://ui/theme.tres" type="Theme" id=2]
-[ext_resource path="res://assets/ui/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/backgrounds/background.png" type="Texture" id=3]
 [ext_resource path="res://ui/font_sizes/small.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/ui/icons/fibers_icon.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/icons/iron_icon.png" type="Texture" id=7]

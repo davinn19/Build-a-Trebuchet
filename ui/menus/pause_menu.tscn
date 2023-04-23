@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui/backgrounds/small_background.png" type="Texture" id=2]
+[ext_resource path="res://ui/menus/pause_menu.gd" type="Script" id=3]
+
+[node name="Pause" type="TextureRect"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 9
+size_flags_vertical = 12
+theme = ExtResource( 1 )
+texture = ExtResource( 2 )
+stretch_mode = 3
+script = ExtResource( 3 )
+
+[node name="Content" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 77.0
+margin_top = 10.0
+margin_right = -58.0
+margin_bottom = -44.0
+
+[node name="Title" type="Label" parent="Content"]
+margin_right = 285.0
+margin_bottom = 60.0
+theme = ExtResource( 1 )
+text = "Paused"
+align = 1
+
+[node name="Resume" type="Button" parent="Content"]
+margin_top = 64.0
+margin_right = 285.0
+margin_bottom = 130.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+text = "resume"
+flat = true
+
+[node name="Spacer2" type="Label" parent="Content"]
+margin_top = 134.0
+margin_right = 285.0
+margin_bottom = 194.0
+theme = ExtResource( 1 )
+align = 1
+
+[node name="Quit" type="Button" parent="Content"]
+margin_top = 198.0
+margin_right = 285.0
+margin_bottom = 264.0
+focus_mode = 0
+action_mode = 0
+enabled_focus_mode = 0
+text = "Quit"
+flat = true

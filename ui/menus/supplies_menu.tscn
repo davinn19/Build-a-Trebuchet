@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/ui/icons/iron_icon.png" type="Texture" id=6]
 [ext_resource path="res://assets/ui/icons/stone_icon.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/icons/wood_icon.png" type="Texture" id=8]
-[ext_resource path="res://assets/ui/background.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/backgrounds/background.png" type="Texture" id=9]
 [ext_resource path="res://ui/button_groups/resource_buttons.tres" type="ButtonGroup" id=10]
 
 [node name="Supplies" type="TextureRect"]
