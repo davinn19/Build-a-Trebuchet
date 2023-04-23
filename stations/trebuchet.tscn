@@ -333,7 +333,7 @@ texture = ExtResource( 13 )
 
 [node name="Arm" type="Sprite" parent="Parts"]
 position = Vector2( 0, -471 )
-rotation = -0.422469
+rotation = 1.87956
 texture = ExtResource( 3 )
 offset = Vector2( -500, -10 )
 
@@ -342,7 +342,7 @@ position = Vector2( 139.022, -1.69055 )
 
 [node name="Sling" type="Sprite" parent="Parts/Arm"]
 position = Vector2( -1179, -22 )
-rotation = -2.73727
+rotation = -0.73252
 texture = ExtResource( 4 )
 offset = Vector2( -250, 2.5 )
 

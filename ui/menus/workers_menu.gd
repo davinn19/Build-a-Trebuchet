@@ -14,12 +14,27 @@ func _ready() -> void:
 	button_group.get_buttons()[0].pressed = true
 	
 	hire_button.connect("pressed", self, "on_hire_button_pressed")
+	
+	for upgrade in upgrades:
+		upgrade.get_child(0).connect("pressed", self, "on_upgrade_button_pressed", [upgrade])
 	pass
 
 
 func _process(delta : float) -> void:
 	update_appearance()
-	pass
+
+
+func on_hire_button_pressed() -> void:
+	var worker_type : String = button_group.get_pressed_button().name.to_lower()
+	command_center.hire_worker(worker_type)
+	update_appearance()
+
+
+func on_upgrade_button_pressed(upgrade : Control) -> void:
+	var upgrade_name : String = upgrade.name.to_lower()
+	var worker_type : String = button_group.get_pressed_button().name.to_lower()
+	command_center.upgrade_stat(worker_type, upgrade_name)
+	update_appearance()
 
 
 func update_appearance() -> void:
@@ -41,9 +56,3 @@ func update_appearance() -> void:
 		var upgrade_cost : int = command_center.get_upgrade_cost(worker_type, upgrade_name)
 		upgrade_button.text = "+1 (" + str(upgrade_cost) + "g)"
 		upgrade_button.disabled = !supply_camp.has_resource("gold", upgrade_cost)
-
-
-func on_hire_button_pressed() -> void:
-	var worker_type : String = button_group.get_pressed_button().name.to_lower()
-	command_center.hire_worker(worker_type)	# TODO implement upgrades
-	pass

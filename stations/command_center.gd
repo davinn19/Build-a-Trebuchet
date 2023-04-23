@@ -2,7 +2,6 @@ class_name CommandCenter
 extends Station
 
 const hire_cost : int = 50
-const max_upgrade_level : int = 3
 
 export(PackedScene) var miner
 export(PackedScene) var builder
@@ -54,8 +53,7 @@ func create_worker(worker_template : PackedScene) -> void:
 
 
 func hire_worker(worker_type : String) -> void:
-	assert(supply_camp.has_resource("gold", hire_cost))
-	supply_camp.inventory.take_resource("gold", hire_cost)
+	supply_camp.buy(hire_cost)
 	
 	match worker_type:
 		"miner":
@@ -73,17 +71,10 @@ func get_upgrade_level(worker_type : String, upgrade : String) -> int:
 	
 func get_upgrade_cost(worker_type : String, upgrade : String) -> int:
 	return get_upgrade_level(worker_type, upgrade) * 30 + 30
-
-
-func is_upgrade_maxed(worker_type : String, upgrade : String) -> bool:
-	return get_upgrade_level(worker_type, upgrade) >= max_upgrade_level
-
+	
 
 func upgrade_stat(worker_type : String, upgrade : String) -> void:
 	var upgrade_cost : int = get_upgrade_cost(worker_type, upgrade)
 	
-	assert(is_upgrade_maxed(worker_type, upgrade))
-	
 	upgrades[worker_type][upgrade] += 1
-	supply_camp.take_resource("gold", upgrade_cost)
-	
+	supply_camp.buy(upgrade_cost)

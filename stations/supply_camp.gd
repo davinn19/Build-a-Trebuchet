@@ -36,10 +36,13 @@ func has_resource(resource : String, amount : int) -> bool:
 
 
 func sell(resource : String, amount : int) -> void:
-	assert(has_resource(resource, amount))
 	var gold_gained : int = amount * sell_values[resource]
 	inventory.take_resource(resource, amount)
 	inventory.add_resource("gold", gold_gained)
+
+
+func buy(cost : int) -> void:
+	inventory.take_resource("gold", cost)
 
 
 func deposit_all_items(worker_inventory : Inventory) -> void:
