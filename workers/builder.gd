@@ -36,7 +36,8 @@ func do_work_cycle() -> void:
 		
 		play_anim("work")
 		while trebuchet.pending_work > 0:
-			yield(get_tree().create_timer(1), "timeout")
+			work_timer.start(1)
+			yield(work_timer, "timeout")
 			trebuchet.work(inventory, get_skill())
 	
 	rest(1)

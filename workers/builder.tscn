@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://character_rig/character_rig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tools/hammer.png" type="Texture" id=2]
 [ext_resource path="res://workers/builder.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/builder_sound.wav" type="AudioStream" id=4]
 
 [node name="Builder" instance=ExtResource( 1 )]
 
@@ -12,3 +13,6 @@ offset = Vector2( 4, -25 )
 
 [node name="Builder" type="Node" parent="." index="4"]
 script = ExtResource( 3 )
+
+[node name="WorkSound" parent="." index="5"]
+stream = ExtResource( 4 )

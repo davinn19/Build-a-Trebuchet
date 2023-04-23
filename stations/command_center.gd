@@ -36,6 +36,8 @@ var num_workers : Dictionary = {
 onready var supply_camp : SupplyCamp = $"../SupplyCamp"
 onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
 
+var workers : Array = []
+
 
 func create_worker(worker_template : PackedScene) -> void:
 	var new_worker : Node2D = worker_template.instance()
@@ -50,6 +52,8 @@ func create_worker(worker_template : PackedScene) -> void:
 		num_workers["woodcutter"] += 1
 	else:
 		assert(false)
+	
+	workers.append(new_worker)
 
 
 func hire_worker(worker_type : String) -> void:
@@ -78,3 +82,8 @@ func upgrade_stat(worker_type : String, upgrade : String) -> void:
 	
 	upgrades[worker_type][upgrade] += 1
 	supply_camp.buy(upgrade_cost)
+
+
+func freeze_workers() -> void:
+	for worker in workers:
+		worker.emit_signal("freeze_requested")

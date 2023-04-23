@@ -310,6 +310,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ -27.2824, 84.9908, 84.9908 ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("WorkSound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="CharacterRig" type="Node2D"]
 script = ExtResource( 3 )
@@ -336,3 +348,11 @@ anims/work = SubResource( 3 )
 script = ExtResource( 4 )
 
 [node name="MoveTween" type="Tween" parent="."]
+
+[node name="WorkSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Rest" type="Timer" parent="."]
+one_shot = true
+
+[node name="Work" type="Timer" parent="."]
+one_shot = true

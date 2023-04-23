@@ -3,7 +3,7 @@ extends Station
 
 signal build_completed
 
-export var arm_joints_active = true
+export var arm_joints_active = false
 
 var total_required_resources : Array = [
 	{
@@ -78,10 +78,7 @@ onready var counterweight_joint : Node2D = $Parts/Arm/CounterweigtJoint
 
 func _ready() -> void:
 	anim.play("BuildAnimation", -1, 0)
-	build_stage = 11
-	yield(get_tree().create_timer(0.5), "timeout")
-	goto_next_stage()
-	yield(get_tree().create_timer(0.5), "timeout")
+	build_stage = -1
 	goto_next_stage()
 
 
@@ -161,6 +158,6 @@ func do_delivery(worker_inventory : Inventory) -> void:
 		delivery_surplus[resource] -= delivered_amount
 		pending_work += delivered_amount
 		
-		
-	
 	delivery_queue.erase(worker_inventory)
+	$MoveItemSound.play()
+	

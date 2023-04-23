@@ -12,6 +12,7 @@ func _ready() -> void:
 func open() -> void:
 	.open()
 	get_tree().paused = true
+	
 
 
 func close() -> void:
@@ -20,5 +21,5 @@ func close() -> void:
 
 
 func quit() -> void:
-	# TODO implement
+	get_tree().quit()
 	pass

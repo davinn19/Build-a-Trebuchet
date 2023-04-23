@@ -14,7 +14,8 @@ func do_work_cycle() -> void:
 	
 	play_anim("work")
 	while !is_inventory_full():
-		yield(get_tree().create_timer(1), "timeout")
+		work_timer.start(1)
+		yield(work_timer, "timeout")
 		woods.work(inventory, get_skill())
 	
 	move_to_station(supply_camp)

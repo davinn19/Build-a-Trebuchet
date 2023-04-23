@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/trebuchet/counterweight.png" type="Texture" id=1]
 [ext_resource path="res://stations/trebuchet.gd" type="Script" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://assets/trebuchet/trebuchet_ground.png" type="Texture" id=12]
 [ext_resource path="res://assets/trebuchet/trebuchet_sign.png" type="Texture" id=13]
 [ext_resource path="res://assets/trebuchet/rock.png" type="Texture" id=14]
+[ext_resource path="res://assets/sounds/move_item.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/sounds/trebuchet_fire.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sounds/trebuchet_prime.wav" type="AudioStream" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "BuildAnimation"
@@ -246,11 +249,22 @@ tracks/18/keys = {
 "update": 0,
 "values": [ false, true ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Parts/Arm/Sling/Rock:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Fire"
 length = 7.0
-step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Parts/Arm:rotation_degrees")
 tracks/0/interp = 2
@@ -274,6 +288,56 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -156.834, -41.9703, 97.3992, 180.0, 186.119, 180.0, 180.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Parts/Arm/Sling/Rock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Rock:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Rock:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 1.4, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 185, -2014 ), Vector2( 2768, -2088 ), Vector2( 4317.8, -1826 ), Vector2( 6029, -978 ) ]
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("Sounds")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.5,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -316,6 +380,32 @@ tracks/2/keys = {
 "update": 0,
 "values": [ -179.46, -179.46, -156.834 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Parts/Arm/Sling/Rock:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Prime")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
 
 [node name="Trebuchet" type="Node2D"]
 script = ExtResource( 2 )
@@ -333,7 +423,7 @@ texture = ExtResource( 13 )
 
 [node name="Arm" type="Sprite" parent="Parts"]
 position = Vector2( 0, -471 )
-rotation = 1.87956
+rotation = 1.56138
 texture = ExtResource( 3 )
 offset = Vector2( -500, -10 )
 
@@ -342,11 +432,12 @@ position = Vector2( 139.022, -1.69055 )
 
 [node name="Sling" type="Sprite" parent="Parts/Arm"]
 position = Vector2( -1179, -22 )
-rotation = -0.73252
+rotation = 0.777762
 texture = ExtResource( 4 )
 offset = Vector2( -250, 2.5 )
 
 [node name="Rock" type="Sprite" parent="Parts/Arm/Sling"]
+visible = false
 show_behind_parent = true
 position = Vector2( -457.456, 1.03924 )
 texture = ExtResource( 14 )
@@ -390,3 +481,19 @@ position = Vector2( -320, 21 )
 
 [node name="BotRight" type="Node2D" parent="WorkPosBounds"]
 position = Vector2( 629, 33 )
+
+[node name="Rock" type="Sprite" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( 2122.25, -2069.5 )
+rotation = 1.10225
+texture = ExtResource( 14 )
+
+[node name="MoveItemSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+
+[node name="Prime" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )

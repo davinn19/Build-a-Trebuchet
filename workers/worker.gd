@@ -10,14 +10,18 @@ const base_skill_level : int = 0
 
 onready var character_rig : CharacterRig = get_parent()
 onready var inventory : Inventory = character_rig.get_node("Inventory")
+onready var rest_timer : Timer = character_rig.get_node("Rest")
+onready var work_timer : Timer = character_rig.get_node("Work")
 
 onready var field : Node = get_node("../../../")
 onready var command_center : CommandCenter = field.get_node("CommandCenter")
 
 var worker_id : String
+var frozen : bool = false
 
 
 func _ready() -> void:
+	character_rig.connect("freeze_requested", self, "freeze")
 	connect("work_cycle_completed", self, "on_work_cycle_completed")
 	yield(character_rig, "ready")
 	rest(1)
@@ -31,7 +35,8 @@ func do_work_cycle() -> void:
 
 
 func on_work_cycle_completed() -> void:
-	do_work_cycle()
+	if !frozen:
+		do_work_cycle()
 
 
 func play_anim(anim_name : String) -> void:
@@ -41,8 +46,15 @@ func play_anim(anim_name : String) -> void:
 
 func rest(duration : float) -> void:
 	play_anim("idle")
-	yield(get_tree().create_timer(duration), "timeout")
+	rest_timer.start(duration)
+	yield(rest_timer, "timeout")
 	emit_signal("turned_idle")
+
+
+func freeze() -> void:
+	frozen = true
+	rest_timer.stop()	# TODO figure out how to stop
+	work_timer.stop()
 
 
 func move_to_station(station : Station) -> void:

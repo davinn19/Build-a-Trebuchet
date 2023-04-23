@@ -51,6 +51,7 @@ func deposit_all_items(worker_inventory : Inventory) -> void:
 		inventory.add_resource(resource, resource_amount)
 	
 	worker_inventory.clear()
+	$MoveItemSound.play()
 	pass
 
 
@@ -73,3 +74,4 @@ func do_delivery(worker_inventory : Inventory) -> void:
 		worker_inventory.add_resource(resource, delivered_amount)
 	
 	delivery_queue.erase(worker_inventory)
+	$MoveItemSound.play()

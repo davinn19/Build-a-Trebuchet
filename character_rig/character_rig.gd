@@ -1,9 +1,10 @@
 class_name CharacterRig
 extends Node2D
 
+signal freeze_requested
+
 onready var anim : AnimationPlayer = $Anim
 onready var move_tween : Tween = $MoveTween
-
 
 func _ready() -> void:
 	randomize_skin_color()
