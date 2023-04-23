@@ -3,13 +3,14 @@ extends Station
 
 signal build_completed
 
+export var arm_joints_active = true
+
 var total_required_resources : Array = [
 	{
-		"wood" : 10,
-		"stone" : 50
+		"stone" : 20
 	},
 	{
-		"wood" : 20,
+		"wood" : 25,
 	},
 	{
 		"wood" : 30,
@@ -45,11 +46,11 @@ var total_required_resources : Array = [
 		"wood" : 120,
 	},
 	{
-		"fibers" : 75,
+		"fibers" : 50,
 	},
 	{
-		"fibers" : 50,
-		"iron" : 30
+		"fibers" : 40,
+		"iron" : 40
 	},
 	{
 		"stone" : 100,
@@ -60,23 +61,40 @@ var total_required_resources : Array = [
 var build_stage : int = -1
 var cur_required_resources : Dictionary
 var pending_work : int = 0
+var stage_work_done : int = 0
+var stage_work_required : int = 0
 
 var delivery_queue : Dictionary = {}
 
 var delivery_surplus : Dictionary = Resources.get_resource_dictionary()
 
+onready var anim : AnimationPlayer = $Anim
 onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
+
+onready var counterweight : Node2D = $Parts/Counterweight
+onready var sling : Node2D = $Parts/Arm/Sling
+onready var counterweight_joint : Node2D = $Parts/Arm/CounterweigtJoint
 
 
 func _ready() -> void:
-	$Anim.play("BuildAnimation", -1, 0)
+	anim.play("BuildAnimation", -1, 0)
+	build_stage = 11
+	yield(get_tree().create_timer(0.5), "timeout")
+	goto_next_stage()
+	yield(get_tree().create_timer(0.5), "timeout")
 	goto_next_stage()
 
 
+func _process(delta : float) -> void:
+	if arm_joints_active:
+		counterweight.global_position = counterweight_joint.global_position
+		counterweight.global_rotation = 0
+
+
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	var work_progress : int = randi() % (skill_level + 1)
-	pending_work = max(pending_work - work_progress, 0)
-	
+	var work_done : int = randi() % (skill_level + 2)
+	pending_work = max(pending_work - work_done, 0)
+	stage_work_done = min(stage_work_done + work_done, stage_work_required)
 	if is_build_stage_complete():
 		goto_next_stage()
 
@@ -86,7 +104,7 @@ func get_work_pos() -> Vector2:
 
 
 func is_build_stage_complete() -> bool:
-	return cur_required_resources.empty() and pending_work <= 0
+	return stage_work_done >= stage_work_required
 
 
 func goto_next_stage() -> void:
@@ -96,12 +114,17 @@ func goto_next_stage() -> void:
 		emit_signal("build_completed")
 	else:
 		cur_required_resources = total_required_resources[build_stage].duplicate()
+
+		stage_work_done = 0
+		stage_work_required = 0
+		for resource_amount in cur_required_resources.values():
+			stage_work_required += resource_amount
 	pass
 
 
 func update_appearance() -> void:
 	var keyframe_time : float = 0.1 * build_stage
-	$Anim.seek(keyframe_time)
+	anim.seek(keyframe_time)
 
 
 func get_required_resources() -> Dictionary:

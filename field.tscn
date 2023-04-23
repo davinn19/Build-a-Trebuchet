@@ -32,7 +32,7 @@ position = Vector2( -1593, 141 )
 position = Vector2( -732, 182 )
 
 [node name="Trebuchet" parent="." instance=ExtResource( 6 )]
-position = Vector2( 458, 152 )
+position = Vector2( 1077, 152 )
 
 [node name="CommandCenter" parent="." instance=ExtResource( 10 )]
 position = Vector2( -251, 200 )

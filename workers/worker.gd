@@ -4,7 +4,7 @@ extends Node
 signal turned_idle
 signal work_cycle_completed
 
-const base_speed : float = 1.0
+const base_speed : float = 200.0
 const base_inventory_size : int = 5
 const base_skill_level : int = 0
 
@@ -13,6 +13,8 @@ onready var inventory : Inventory = character_rig.get_node("Inventory")
 
 onready var field : Node = get_node("../../../")
 onready var command_center : CommandCenter = field.get_node("CommandCenter")
+
+var worker_id : String
 
 
 func _ready() -> void:
@@ -98,15 +100,12 @@ func is_inventory_empty() -> bool:
 	
 
 func get_speed() -> float:
-	assert(false, "Needs to be implemented")
-	return 0.0
+	return base_speed + command_center.get_upgrade_level(worker_id, "speed") * 200
 
 
 func get_inventory_size() -> int:
-	assert(false, "Needs to be implemented")
-	return 0
+	return base_inventory_size + command_center.get_upgrade_level(worker_id, "carry") * 5
 
 
 func get_skill() -> int:
-	assert(false, "Needs to be implemented")
-	return 0
+	return base_skill_level + command_center.get_upgrade_level(worker_id, "skill")

@@ -17,7 +17,7 @@ func get_work_pos() -> Vector2:
 
 
 func get_stone_drop(skill_level : int) -> int:
-	return randi() % (skill_level + 1)
+	return randi() % (skill_level + 2)
 
 
 func get_iron_drop(skill_level : int) -> int:

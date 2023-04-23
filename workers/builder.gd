@@ -5,6 +5,10 @@ onready var trebuchet : Trebuchet = field.get_node("Trebuchet")
 onready var supply_camp : SupplyCamp = field.get_node("SupplyCamp")
 
 
+func _init() -> void:
+	worker_id = "builder"
+
+
 func do_work_cycle() -> void:
 	var delivery_list : Dictionary = get_delivery_list()
 	if !delivery_list.empty():
@@ -33,7 +37,7 @@ func do_work_cycle() -> void:
 		play_anim("work")
 		while trebuchet.pending_work > 0:
 			yield(get_tree().create_timer(1), "timeout")
-			trebuchet.work(inventory, skill_level)
+			trebuchet.work(inventory, get_skill())
 	
 	rest(1)
 	yield(self, "turned_idle")
@@ -42,7 +46,7 @@ func do_work_cycle() -> void:
 
 func get_delivery_list() -> Dictionary:
 	var delivery_list : Dictionary = {}
-	var available_inventory_space : int = max_inventory_size
+	var available_inventory_space : int = get_inventory_size()
 	
 	var required_resources : Dictionary = trebuchet.get_required_resources()
 	
@@ -54,7 +58,7 @@ func get_delivery_list() -> Dictionary:
 		available_inventory_space -= amount_to_take
 		delivery_list[resource] = amount_to_take
 	
-	if available_inventory_space == max_inventory_size:	# no resources were chosen for delivery
+	if available_inventory_space == get_inventory_size():	# no resources were chosen for delivery
 		return {}
 	
 	return delivery_list

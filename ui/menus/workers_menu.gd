@@ -30,7 +30,7 @@ func update_appearance() -> void:
 	
 	var num_hired : int = command_center.num_workers[worker_type]
 	hired_text.text = "Hired: " + str(num_hired)
-	hire_button.visible = supply_camp.has_resource("gold", command_center.hire_cost)
+	hire_button.disabled = !supply_camp.has_resource("gold", command_center.hire_cost)
 	
 	for upgrade in upgrades:
 		var upgrade_name = upgrade.name.to_lower()

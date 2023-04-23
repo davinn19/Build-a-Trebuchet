@@ -12,7 +12,6 @@ func get_work_pos() -> Vector2:
 
 
 func work(worker_inventory : Inventory, skill_level : int) -> void:
-	# TODO implement
 	if available_wood:
 		var wood_collected : int = get_wood_drop(skill_level)
 		worker_inventory.add_resource("wood", wood_collected)
@@ -25,10 +24,15 @@ func work(worker_inventory : Inventory, skill_level : int) -> void:
 			chopping_progress = 0
 			available_wood = randi() % 50 + 50
 
-	
+
 func get_wood_drop(skill_level : int) -> int:
-	return int(max(available_wood, skill_level + 1))
+	return int(min(available_wood, skill_level + 1))
 
 
 func get_fiber_drop(skill_level : int) -> int:
-	return randi() % ((skill_level + 1) / 2)
+	var drop_chance : float = 0.1 + skill_level * 0.05
+	var fiber_dropped : bool = randf() < drop_chance
+	if fiber_dropped:
+		return 1
+	else:
+		return 0
