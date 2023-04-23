@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fibers_icon.png-37691b7c4a14d910c9485184f78a9f9a.stex"
+path="res://.import/progress.png-622f195cfff493fdaf82f8ed3519292c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/resource_icons/fibers_icon.png"
-dest_files=[ "res://.import/fibers_icon.png-37691b7c4a14d910c9485184f78a9f9a.stex" ]
+source_file="res://assets/ui/icons/progress.png"
+dest_files=[ "res://.import/progress.png-622f195cfff493fdaf82f8ed3519292c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/settings.png-3b014fdc17cb35d44052d833f08585c0.stex"
+path="res://.import/workers.png-624f106b5e19d45df9fbfc5077cc5773.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/settings.png"
-dest_files=[ "res://.import/settings.png-3b014fdc17cb35d44052d833f08585c0.stex" ]
+source_file="res://assets/ui/icons/workers.png"
+dest_files=[ "res://.import/workers.png-624f106b5e19d45df9fbfc5077cc5773.stex" ]
 
 [params]
 

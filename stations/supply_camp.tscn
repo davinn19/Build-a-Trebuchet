@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://inventory.gd" type="Script" id=1]
 [ext_resource path="res://stations/supply_camp.gd" type="Script" id=2]
 [ext_resource path="res://assets/supply_camp.png" type="Texture" id=3]
 [ext_resource path="res://stations/work_pos_bounds.tscn" type="PackedScene" id=4]
-[ext_resource path="res://stations/click_area.gd" type="Script" id=5]
 
 [node name="SupplyCamp" type="Node2D"]
 script = ExtResource( 2 )
@@ -21,9 +20,3 @@ position = Vector2( -213, -11 )
 
 [node name="BotRight" type="Node2D" parent="WorkPosBounds"]
 position = Vector2( 466, 38 )
-
-[node name="ClickArea" type="Area2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea"]
-polygon = PoolVector2Array( -284, 1, -270, -347, 24, -423, 243, -336, 305, -281, 287, 11 )

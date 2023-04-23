@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character_rig/character_rig.gd"
 }, {
-"base": "Area2D",
-"class": "ClickArea",
-"language": "GDScript",
-"path": "res://stations/click_area.gd"
-}, {
 "base": "Station",
 "class": "CommandCenter",
 "language": "GDScript",
@@ -53,11 +48,6 @@ _global_script_classes=[ {
 "class": "Station",
 "language": "GDScript",
 "path": "res://stations/station.gd"
-}, {
-"base": "TextureRect",
-"class": "SuppliesUI",
-"language": "GDScript",
-"path": "res://ui/supplies_ui.gd"
 }, {
 "base": "Station",
 "class": "SupplyCamp",
@@ -97,14 +87,12 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Builder": "",
 "CharacterRig": "",
-"ClickArea": "",
 "CommandCenter": "",
 "Guard": "",
 "Inventory": "",
 "Miner": "",
 "Quarry": "",
 "Station": "",
-"SuppliesUI": "",
 "SupplyCamp": "",
 "Trebuchet": "",
 "TreeResource": "",

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/supplies.png-7c8e73c47d6ec64660bc89549bf71dbb.stex"
+path="res://.import/stone_icon.png-172d40af62be849e0887296002b0b994.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/supplies.png"
-dest_files=[ "res://.import/supplies.png-7c8e73c47d6ec64660bc89549bf71dbb.stex" ]
+source_file="res://assets/ui/icons/stone_icon.png"
+dest_files=[ "res://.import/stone_icon.png-172d40af62be849e0887296002b0b994.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

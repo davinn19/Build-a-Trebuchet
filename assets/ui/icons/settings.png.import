@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/progress.png-50d8feddb03546e5ae41db995a43d48e.stex"
+path="res://.import/settings.png-05f96689361c066ede9747ca7d01171b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/progress.png"
-dest_files=[ "res://.import/progress.png-50d8feddb03546e5ae41db995a43d48e.stex" ]
+source_file="res://assets/ui/icons/settings.png"
+dest_files=[ "res://.import/settings.png-05f96689361c066ede9747ca7d01171b.stex" ]
 
 [params]
 

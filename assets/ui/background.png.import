@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wood_icon.png-f2a71586a09c0a69e681cb93ec0b97ff.stex"
+path="res://.import/background.png-be0254f702cf55c19c4800582a88ad15.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/resource_icons/wood_icon.png"
-dest_files=[ "res://.import/wood_icon.png-f2a71586a09c0a69e681cb93ec0b97ff.stex" ]
+source_file="res://assets/ui/background.png"
+dest_files=[ "res://.import/background.png-be0254f702cf55c19c4800582a88ad15.stex" ]
 
 [params]
 

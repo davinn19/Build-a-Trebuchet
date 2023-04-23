@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/workers.png-e4088ea48f080099fb843cc6de030b68.stex"
+path="res://.import/wood_icon.png-15d665246fc3a51d25e2b8981ae1521a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/workers.png"
-dest_files=[ "res://.import/workers.png-e4088ea48f080099fb843cc6de030b68.stex" ]
+source_file="res://assets/ui/icons/wood_icon.png"
+dest_files=[ "res://.import/wood_icon.png-15d665246fc3a51d25e2b8981ae1521a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

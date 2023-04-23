@@ -128,6 +128,9 @@ func do_delivery(worker_inventory : Inventory) -> void:
 		var delivered_amount : int = delivery_list[resource]
 		worker_inventory.take_resource(resource, delivered_amount)
 		
+		if !cur_required_resources.has(resource):
+			continue
+		
 		cur_required_resources[resource] -= delivered_amount
 		if cur_required_resources[resource] <= 0:
 			cur_required_resources.erase(resource)

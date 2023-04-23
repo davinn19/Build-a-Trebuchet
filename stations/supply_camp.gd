@@ -3,10 +3,16 @@ extends Station
 
 onready var inventory : Inventory = $Inventory
 onready var work_pos_bounds : WorkPosBounds = $WorkPosBounds
-onready var click_area : ClickArea = $ClickArea
 
 var delivery_queue : Dictionary = {}
 var delivery_deficit : Dictionary = Resources.get_resource_dictionary()
+
+const sell_values : Dictionary = {
+	"wood" : 1,
+	"stone" : 1,
+	"iron" : 5,
+	"fibers" : 5
+}
 
 
 func get_work_pos() -> Vector2:
@@ -23,6 +29,17 @@ func get_resource_deficit(resource : String) -> int:
 
 func get_resource_amount(resource : String) -> int:
 	return get_real_amount(resource) - get_resource_deficit(resource)
+
+
+func can_sell(resource : String, amount : int) -> bool:
+	return get_resource_amount(resource) >= amount
+
+
+func sell(resource : String, amount : int) -> void:
+	assert(can_sell(resource, amount))
+	var gold_gained : int = amount * sell_values[resource]
+	inventory.take_resource(resource, amount)
+	inventory.add_resource("gold", gold_gained)
 
 
 func deposit_all_items(worker_inventory : Inventory) -> void:

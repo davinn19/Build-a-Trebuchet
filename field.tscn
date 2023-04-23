@@ -1,28 +1,23 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://field.gd" type="Script" id=1]
 [ext_resource path="res://stations/supply_camp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://stations/quarry.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/ui/supplies/background.png" type="Texture" id=4]
+[ext_resource path="res://ui/menus/supplies_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://stations/woods.tscn" type="PackedScene" id=5]
 [ext_resource path="res://stations/trebuchet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/theme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/background.png" type="Texture" id=8]
 [ext_resource path="res://cam.gd" type="Script" id=9]
 [ext_resource path="res://stations/command_center.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/ui/resource_icons/fibers_icon.png" type="Texture" id=11]
-[ext_resource path="res://assets/ui/resource_icons/gold_icon.png" type="Texture" id=12]
-[ext_resource path="res://assets/ui/resource_icons/stone_icon.png" type="Texture" id=13]
-[ext_resource path="res://assets/ui/resource_icons/iron_icon.png" type="Texture" id=14]
-[ext_resource path="res://assets/ui/resource_icons/wood_icon.png" type="Texture" id=15]
-[ext_resource path="res://ui/font_sizes/small.tres" type="DynamicFont" id=16]
-[ext_resource path="res://ui/buttons/workers.png" type="Texture" id=17]
-[ext_resource path="res://ui/buttons/settings.png" type="Texture" id=18]
+[ext_resource path="res://ui/menus/workers_menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ui/menus/progress_menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/ui/icons/workers.png" type="Texture" id=17]
+[ext_resource path="res://assets/ui/icons/settings.png" type="Texture" id=18]
 [ext_resource path="res://ui.gd" type="Script" id=19]
-[ext_resource path="res://ui/supplies_ui.gd" type="Script" id=20]
 [ext_resource path="res://ui/hud.gd" type="Script" id=21]
-[ext_resource path="res://ui/buttons/progress.png" type="Texture" id=22]
-[ext_resource path="res://ui/buttons/supplies.png" type="Texture" id=23]
+[ext_resource path="res://assets/ui/icons/progress.png" type="Texture" id=22]
+[ext_resource path="res://assets/ui/icons/supplies.png" type="Texture" id=23]
 
 [node name="Field" type="Node2D"]
 script = ExtResource( 1 )
@@ -108,154 +103,8 @@ size_flags_vertical = 3
 theme = ExtResource( 7 )
 script = ExtResource( 19 )
 
-[node name="Supplies" type="TextureRect" parent="CanvasLayer/UI"]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_top = 40.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource( 4 )
-stretch_mode = 3
-script = ExtResource( 20 )
+[node name="Supplies" parent="CanvasLayer/UI" instance=ExtResource( 4 )]
 
-[node name="Content" type="VBoxContainer" parent="CanvasLayer/UI/Supplies"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 77.0
-margin_top = 72.0
-margin_right = -58.0
-margin_bottom = -44.0
+[node name="Workers" parent="CanvasLayer/UI" instance=ExtResource( 11 )]
 
-[node name="Title" type="Label" parent="CanvasLayer/UI/Supplies/Content"]
-margin_right = 331.0
-margin_bottom = 60.0
-theme = ExtResource( 7 )
-text = "Supplies"
-align = 1
-
-[node name="ResourceList" type="VBoxContainer" parent="CanvasLayer/UI/Supplies/Content"]
-margin_top = 64.0
-margin_right = 331.0
-margin_bottom = 400.0
-
-[node name="Wood" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content/ResourceList"]
-margin_right = 64.0
-margin_bottom = 64.0
-size_flags_horizontal = 0
-texture_normal = ExtResource( 15 )
-
-[node name="Amount" type="Label" parent="CanvasLayer/UI/Supplies/Content/ResourceList/Wood"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.0901961, 0.0862745, 0.564706, 1 )
-text = "0"
-align = 1
-valign = 1
-
-[node name="Stone" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content/ResourceList"]
-margin_top = 68.0
-margin_right = 64.0
-margin_bottom = 132.0
-rect_pivot_offset = Vector2( -625, -207 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 13 )
-
-[node name="Amount" type="Label" parent="CanvasLayer/UI/Supplies/Content/ResourceList/Stone"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="Iron" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content/ResourceList"]
-margin_top = 136.0
-margin_right = 64.0
-margin_bottom = 200.0
-rect_pivot_offset = Vector2( -625, -275 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 14 )
-
-[node name="Amount" type="Label" parent="CanvasLayer/UI/Supplies/Content/ResourceList/Iron"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="Fibers" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content/ResourceList"]
-margin_top = 204.0
-margin_right = 64.0
-margin_bottom = 268.0
-rect_pivot_offset = Vector2( -625, -343 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 11 )
-
-[node name="Amount" type="Label" parent="CanvasLayer/UI/Supplies/Content/ResourceList/Fibers"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="Gold" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content/ResourceList"]
-margin_top = 272.0
-margin_right = 64.0
-margin_bottom = 336.0
-rect_pivot_offset = Vector2( -625, -411 )
-size_flags_horizontal = 0
-texture_normal = ExtResource( 12 )
-
-[node name="Amount" type="Label" parent="CanvasLayer/UI/Supplies/Content/ResourceList/Gold"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = 10.0
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-align = 1
-valign = 1
-
-[node name="SellOne" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content"]
-margin_top = 404.0
-margin_right = 331.0
-margin_bottom = 482.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/Supplies/Content/SellOne"]
-margin_right = 40.0
-margin_bottom = 75.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 16 )
-text = "Sell 1 (100g)"
-align = 1
-
-[node name="SellTen" type="TextureButton" parent="CanvasLayer/UI/Supplies/Content"]
-margin_top = 486.0
-margin_right = 331.0
-margin_bottom = 564.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/Supplies/Content/SellTen"]
-margin_right = 40.0
-margin_bottom = 75.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 16 )
-text = "Sell 10 (100G)"
-align = 1
+[node name="Progress" parent="CanvasLayer/UI" instance=ExtResource( 12 )]
