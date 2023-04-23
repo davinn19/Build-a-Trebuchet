@@ -7,7 +7,7 @@ onready var button_group : ButtonGroup = $Content/WorkerButtons.get_child(0).gro
 onready var worker_type_text : Label = $Content/WorkerType
 onready var hired_text : Label = $Content/Hired
 onready var hire_button : Button = $Content/Hired/Button
-
+onready var upgrades : Array = $Content/Upgrades.get_children()
 
 
 func _ready() -> void:
@@ -30,7 +30,17 @@ func update_appearance() -> void:
 	
 	var num_hired : int = command_center.num_workers[worker_type]
 	hired_text.text = "Hired: " + str(num_hired)
-	hire_button.visible = supply_camp.can_sell("gold", 50)
+	hire_button.visible = supply_camp.has_resource("gold", command_center.hire_cost)
+	
+	for upgrade in upgrades:
+		var upgrade_name = upgrade.name.to_lower()
+		var upgrade_level : int = command_center.get_upgrade_level(worker_type, upgrade_name)
+		upgrade.text = upgrade.name + ": " + str(upgrade_level)
+		
+		var upgrade_button : Button = upgrade.get_node("Button")
+		var upgrade_cost : int = command_center.get_upgrade_cost(worker_type, upgrade_name)
+		upgrade_button.text = "+1 (" + str(upgrade_cost) + "g)"
+		upgrade_button.disabled = !supply_camp.has_resource("gold", upgrade_cost)
 
 
 func on_hire_button_pressed() -> void:

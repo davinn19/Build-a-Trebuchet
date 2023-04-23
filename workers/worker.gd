@@ -4,14 +4,15 @@ extends Node
 signal turned_idle
 signal work_cycle_completed
 
+const base_speed : float = 1.0
+const base_inventory_size : int = 5
+const base_skill_level : int = 0
+
 onready var character_rig : CharacterRig = get_parent()
 onready var inventory : Inventory = character_rig.get_node("Inventory")
 
 onready var field : Node = get_node("../../../")
-
-var move_speed : float = 2000
-var max_inventory_size : int = 30
-var skill_level : int = 10
+onready var command_center : CommandCenter = field.get_node("CommandCenter")
 
 
 func _ready() -> void:
@@ -85,12 +86,27 @@ func face_target_pos(target_pos : Vector2) -> void:
 
 
 func get_move_duration(move_distance : float) -> float:
-	return move_distance / move_speed
+	return move_distance / get_speed()
 
 
 func is_inventory_full() -> bool:
-	return inventory.get_total_resource_amount() >= max_inventory_size
+	return inventory.get_total_resource_amount() >= get_inventory_size()
 
 
 func is_inventory_empty() -> bool:
 	return inventory.get_total_resource_amount() <= 0
+	
+
+func get_speed() -> float:
+	assert(false, "Needs to be implemented")
+	return 0.0
+
+
+func get_inventory_size() -> int:
+	assert(false, "Needs to be implemented")
+	return 0
+
+
+func get_skill() -> int:
+	assert(false, "Needs to be implemented")
+	return 0

@@ -31,12 +31,12 @@ func get_resource_amount(resource : String) -> int:
 	return get_real_amount(resource) - get_resource_deficit(resource)
 
 
-func can_sell(resource : String, amount : int) -> bool:
+func has_resource(resource : String, amount : int) -> bool:
 	return get_resource_amount(resource) >= amount
 
 
 func sell(resource : String, amount : int) -> void:
-	assert(can_sell(resource, amount))
+	assert(has_resource(resource, amount))
 	var gold_gained : int = amount * sell_values[resource]
 	inventory.take_resource(resource, amount)
 	inventory.add_resource("gold", gold_gained)

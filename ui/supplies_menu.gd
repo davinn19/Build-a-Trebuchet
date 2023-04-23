@@ -26,6 +26,8 @@ func update_sell_buttons() -> void:
 		sell_one_button.visible = false
 		sell_ten_button.visible = false
 	else:
+		sell_one_button.visible = true
+		sell_ten_button.visible = true
 		
 		sell_one_button.icon = button_pressed.icon
 		sell_ten_button.icon = button_pressed.icon
@@ -34,8 +36,8 @@ func update_sell_buttons() -> void:
 		sell_one_button.text = "Sell 1 (" + str(sell_value) + "G)"
 		sell_ten_button.text = "Sell 10 (" + str(sell_value * 10) + "G)"
 		
-		sell_one_button.visible = supply_camp.can_sell(resource_name, 1)
-		sell_ten_button.visible = supply_camp.can_sell(resource_name, 10)
+		sell_one_button.disabled = !supply_camp.has_resource(resource_name, 1)
+		sell_ten_button.disabled = !supply_camp.has_resource(resource_name, 10)
 	pass
 		
 

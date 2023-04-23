@@ -2,9 +2,6 @@ extends TextureRect
 
 onready var trebuchet : Trebuchet = $"../../../Trebuchet"
 
-onready var sell_one_button : Button = $Content/SellOne
-onready var sell_ten_button : Button = $Content/SellTen
-
 onready var button_group : ButtonGroup = $Content/ResourceList.get_child(0).group
 
 #func _ready() -> void:

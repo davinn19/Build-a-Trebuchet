@@ -148,14 +148,14 @@ text = "+1 (50g)"
 flat = true
 align = 2
 
-[node name="Skill2" type="Label" parent="Content/Upgrades"]
+[node name="Carry" type="Label" parent="Content/Upgrades"]
 margin_top = 88.0
 margin_right = 331.0
 margin_bottom = 128.0
 custom_fonts/font = ExtResource( 3 )
-text = "Strength : 0"
+text = "Carry: 0"
 
-[node name="Button" type="Button" parent="Content/Upgrades/Skill2"]
+[node name="Button" type="Button" parent="Content/Upgrades/Carry"]
 margin_right = 331.0
 margin_bottom = 46.0
 focus_mode = 0
